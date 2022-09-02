@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #232f52;
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      .start {
+        position: absolute;
+        top: calc(20% + 120px);
+        left: 50%;
+        background: #51d05e;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 50px;
+        border: 2px solid #4cbd58;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: 0.3s ease;
+        user-select: none;
+        cursor: pointer;
+        font-size: 22px;
+        filter: drop-shadow(2px 2px 2px rgba(89, 217, 102, 0.2));
+      }
+
+      .start:hover {
+        background: #4cbd58;
+      }
+
+      .shadow {
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+        border-radius: 0;
+        border: 3px solid #000000;
+        width: 99.7%;
+        height: 120px;
+        box-shadow: inset 0px 0px 50px 0px black;
+      }
+
+      .random {
+        position: absolute;
+        overflow: hidden;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        width: 99.7%;
+        height: 120px;
+        background: #161d31;
+      }
+
+      .cards {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 12000%;
+        height: 100%;
+        transition: 15s ease;
+      }
+
+      .cards > div {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: left;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 25px;
+        margin-top: 5px;
+        margin-left: 5px;
+        width: 160px;
+        height: 100%;
+        color: #ffffff;
+        background: rgb(37, 37, 37);
+      }
+
+      .result {
+        position: absolute;
+        z-index: 10;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        border: 10px solid transparent;
+        border-top: 20px solid #000000;
+        filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+      }
+      .waitText {
+        position: absolute;
+        left: 47%;
+        top: calc(15% + 100px);
+        display: none;
+        color: white;
+        font-size: 25px;
+      }
+      .alldrop {
+        padding-left: 2%;
+        width: 98%;
+
+        position: absolute;
+        top: 55%;
+      }
+      .imgControll {
+        padding-right: 5%;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>RANDOM JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="mine.css" />
+  </head>
+  <body>
+    <div class="shadow"></div>
+    <div class="random">
+      <div class="result"></div>
+      <div class="cards">
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <button class="start" id="but" onclick="start()">open case</button>
+
+    <h1 class="waitText" id="wait">case opening...</h1>
+    <div class="alldrop">
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок.PNG"
+        width="150px"
+        height="110px"
+      />
+
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок1.PNG"
+        width="150px"
+        height="110px"
+      />
+
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок3.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок4.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок5.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок6.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок7.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок9.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок10.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок19.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок20.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок22.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок23.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок24.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок25.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок12.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок13.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок14.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок15.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок16.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок26.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок27.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок28.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок29.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок30.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок31.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок17.PNG"
+        width="150px"
+        height="110px"
+      />
+      <img
+        src="c:/Users/zmajm/Desktop/fromcase/Снимок18.PNG"
+        width="150px"
+        height="110px"
+      />
+    </div>
+
+    <script>
+      var cards_block = document.querySelector(".cards");
+      var cards = document.querySelectorAll(".cards > div");
+      var wait = document.getElementById("wait");
+      var but = document.getElementById("but");
+      var prov = document.getElementById("prov");
+
+      function start() {
+        but.style.display = "none";
+        wait.style.display = "block";
+        var random = 130;
+
+        for (var i = 0; i <= 150; i++) {
+          var rend = Math.floor(Math.random() * 1000);
+
+          if (rend <= 700) {
+            var bluerand = Math.floor(Math.random() * 15);
+
+            if (bluerand == 0) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 1) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок1.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 2) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок3.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 3) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок4.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 4) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок5.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 5) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок6.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 6) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок7.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 7) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок9.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 8) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок10.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 9) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок19.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 10) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок20.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 11) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок22.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 12) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок23.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 13) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок24.PNG" width=100% height=100%>';
+            }
+            if (bluerand == 14) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок25.PNG" width=100% height=100%>';
+            }
+            console.log(bluerand);
+          }
+          if (rend >= 700 && rend <= 900) {
+            var randpurple = Math.floor(Math.random() * 11);
+            if (randpurple == 0) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок12.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 1) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок13.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 2) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок14.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 3) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок15.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 4) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок16.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 5) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок26.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 6) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок27.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 7) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок28.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 8) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок29.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 9) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок30.PNG" width=100% height=100%>';
+            }
+            if (randpurple == 10) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок31.PNG" width=100% height=100%>';
+            }
+            console.log(randpurple);
+          }
+          if (rend >= 900 && rend <= 1000) {
+            var randpink = Math.floor(Math.random() * 2);
+            if (randpink == 0) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок17.PNG" width=100% height=100%>';
+            }
+            if (randpink == 1) {
+              cards[i].innerHTML =
+                '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок18.PNG" width=100% height=100%>';
+            }
+            console.log(randpink);
+          }
+        }
+
+        function getRandomFloat() {
+          return Math.random() * (170.35 - 169.2) + 169.2;
+        }
+
+        cards_block.style.left = -random * getRandomFloat(169.2, 170.35) + "px";
+
+        var rand = Math.floor(Math.random() * 1000);
+        if (rand <= 970) {
+          var bluerand = Math.floor(Math.random() * 15);
+          if (bluerand == 0) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 1) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок1.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 2) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок3.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 3) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок4.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 4) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок5.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 5) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок6.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 6) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок7.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 7) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок9.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 8) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок10.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 9) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок19.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 10) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок20.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 11) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок22.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 12) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок23.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 13) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок24.PNG" width=100% height=100%>';
+          }
+          if (bluerand == 14) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок25.PNG" width=100% height=100%>';
+          }
+          console.log(bluerand);
+        }
+        if (rand >= 971 && rand <= 995) {
+          var randpurple = Math.floor(Math.random() * 11);
+          if (randpurple == 0) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок12.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 1) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок13.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 2) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок14.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 3) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок15.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 4) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок16.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 5) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок26.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 6) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок27.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 7) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок28.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 8) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок29.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 9) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок30.PNG" width=100% height=100%>';
+          }
+          if (randpurple == 10) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок31.PNG" width=100% height=100%>';
+          }
+          console.log(randpurple);
+        }
+        if (rand >= 995 && rand <= 1000) {
+          var randpink = Math.floor(Math.random() * 2);
+          if (randpink == 0) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок17.PNG" width=100% height=100%>';
+          }
+          if (randpink == 1) {
+            cards[random].innerHTML =
+              '<img src = "c:/Users/zmajm/Desktop/fromcase/Снимок18.PNG" width=100% height=100%>';
+          }
+          console.log(randpink);
+        }
+        console.log(rand);
+
+        setTimeout(function () {
+          random++;
+
+          alert("Вам выпало:" + " " + cards[random + 8].innerHTML);
+
+          cards_block.style.left = 0 + "px";
+
+          setTimeout(function () {
+            wait.style.display = "none";
+            but.style.display = "block";
+          }, 5000);
+        }, 15000);
+      }
+    </script>
+  </body>
+</html>
